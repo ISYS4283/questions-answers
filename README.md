@@ -15,5 +15,5 @@ Your database is named `isys4283<your UARK username>`
 
 [![Youtube Thumbnail][2]][1]
 
-[1]:https://youtu.be/2t2IeNA1bi0
+[1]:https://youtu.be/2t2IeNA1bi0?hd=1
 [2]:./youtube.png
