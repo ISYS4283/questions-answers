@@ -42,7 +42,7 @@ in order to be current with the class.
 [![Youtube Thumbnail][2]][1]
 
 [1]:https://youtu.be/2t2IeNA1bi0?hd=1
-[2]:./youtube.png
-[3]:./create_questions_table.sql
-[4]:./create_answers_table.sql
+[2]:./docs/images/youtube.png
+[3]:./sql/create-questions-table.sql
+[4]:./sql/create-answers-table.sql
 [5]:https://github.com/ISYS4283/questions-answers/tree/5452b90c488d6ae05b9c87e578a8165504bafb7f
