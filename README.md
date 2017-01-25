@@ -34,7 +34,10 @@ INSERT INTO [answers] ([question_id],[answer])
 VALUES ('7B236C12-1EF9-41B1-A08F-B813AF46A72D','Entity Relationship Diagram');
 ```
 
-[Watch on Youtube][1]
+[Watch on Youtube][1]. **NOTE** that the repository has changed since this
+video was made. [Click here][5] to browse the repository files at that time.
+But keep in mind that you will want to create the latest version of the tables
+in order to be current with the class.
 
 [![Youtube Thumbnail][2]][1]
 
@@ -42,3 +45,4 @@ VALUES ('7B236C12-1EF9-41B1-A08F-B813AF46A72D','Entity Relationship Diagram');
 [2]:./youtube.png
 [3]:./create_questions_table.sql
 [4]:./create_answers_table.sql
+[5]:https://github.com/ISYS4283/questions-answers/tree/5452b90c488d6ae05b9c87e578a8165504bafb7f
