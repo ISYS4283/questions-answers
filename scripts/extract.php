@@ -2,33 +2,30 @@
 
 $db = require __DIR__.'/../pdo.php';
 
-$fetch = function($sql) use ($db) {
-    return $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-};
-
 $sql = "SELECT username, db FROM students";
 
-$databases = $fetch($sql);
+$databases = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ( $databases as $database ) {
-    $sql = "SELECT question FROM $database[db].dbo.questions";
+    $sql = "
+        INSERT INTO isys4283.dbo.tempq
+            (  id, question, created_at  )
+        SELECT id, question, created_at
+        FROM $database[db].dbo.questions
+        WHERE CONVERT(DATE,created_at) = '2017-01-25'
+    ";
+
     try {
-        $results = $fetch($sql);
-        foreach ( $results as $result ) {
-            if ( !empty($result['question']) ) {
-                $questions[$database['username']] []= $result['question'];
-            }
-        }
+        $db->exec($sql);
     } catch (PDOException $e) {
-        $errors[$database['username']] = $e->getMessage();
-    }
-}
+        $sql = "
+            INSERT INTO isys4283.dbo.qaerrors
+            (username, error) VALUES (:username, :error)
+        ";
 
-print_r($questions ?? []);
-print_r($errors ?? []);
-
-foreach ( $questions as $username ) {
-    foreach ( $username as $question ) {
-        echo "INSERT INTO questions (question) VALUES ('$question');\n";
+        $db->prepare($sql)->execute([
+            'username' => $database['username'],
+            'error'    => $e->getMessage(),
+        ]);
     }
 }
