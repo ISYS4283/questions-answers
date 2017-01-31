@@ -6,6 +6,7 @@ use Dotenv\Exception\InvalidPathException;
 class Container
 {
     protected static $registry = [];
+    protected static $required;
 
     public static function set(string $key, $value)
     {
@@ -22,6 +23,11 @@ class Container
                     $dotenv = realpath(dirname($_SERVER['SCRIPT_FILENAME']));
                     $dotenv = new Dotenv($dotenv);
                     $dotenv->load();
+
+                    if ( isset(static::$required) ) {
+                        $dotenv->required(static::$required);
+                    }
+
                     static::$registry['dotenv'] = $dotenv;
                 } catch ( InvalidPathException $e ) {
                     static::$registry['dotenv'] = 'No .env file set.';
