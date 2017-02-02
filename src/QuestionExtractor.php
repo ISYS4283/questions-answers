@@ -2,6 +2,7 @@
 
 use PDO;
 use PDOException;
+use InvalidArgumentException;
 
 class QuestionExtractor
 {
@@ -15,12 +16,11 @@ class QuestionExtractor
     public static function run()
     {
         static::$pdo = EnhancedContainer::pdo();
+
         static::clean();
 
         foreach ( Users::get() as $user ) {
-            $data = static::extract($user);
-
-            print_r($data);
+            static::insert(static::extract($user));
         }
     }
 
@@ -47,10 +47,49 @@ class QuestionExtractor
             $data = static::$pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             $data[0]['username'] = $user['username'];
-            $data[0]['question'] = $e->getMessage();
+            $data[0]['created_at'] = date("Y-m-d H:i:s");
+            $data[0]['error'] = $e->getMessage();
+        }
+
+        if ( empty($data) ) {
+            $data[0]['username'] = $user['username'];
+            $data[0]['created_at'] = date("Y-m-d H:i:s");
         }
 
         return $data;
+    }
+
+    /**
+     * Inserts questions or error into temporary questions table.
+     *
+     * @param  array $data Contains one user's questions or error.
+     * @return void
+     */
+    protected static function insert(array $data)
+    {
+        foreach ( $data as $row ) {
+            $sql  = "INSERT INTO [isys4283].[dbo].[tempq] ";
+            $sql .= static::buildColumnValueBinders($row);
+
+            static::$pdo->prepare($sql)->execute($row);
+        }
+    }
+
+    /**
+     * Builds a prepared statement with provided columns and values.
+     *
+     * @param  array $data The columns and values.
+     * @return string String with named columns and placeholders.
+     */
+    protected static function buildColumnValueBinders(array $data)
+    {
+        if ( empty($data) ) {
+            throw new InvalidArgumentException('array cannot be empty');
+        }
+
+        $columns = array_keys($data);
+
+        return '('.implode(',',$columns).') VALUES (:'.implode(',:',$columns).')';
     }
 
     /**
