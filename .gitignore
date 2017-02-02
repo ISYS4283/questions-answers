@@ -1,1 +1,3 @@
 *pdo.php
+/vendor/
+.env
