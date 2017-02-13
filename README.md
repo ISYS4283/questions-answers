@@ -25,6 +25,13 @@ Browse the questions after they've been pulled here:
 SELECT * FROM [isys4283].[dbo].[questions]
 ```
 
+Protip: you can filter the current questions using a [`WHERE` clause][6].
+
+```sql
+SELECT * FROM [isys4283].[dbo].[questions]
+WHERE created_at >= '2017-02-08'
+```
+
 Create your [answers table][4] if you haven't already.
 
 Insert your answer passing the question id with it, for example:
@@ -46,3 +53,4 @@ in order to be current with the class.
 [3]:./sql/create-questions-table.sql
 [4]:./sql/create-answers-table.sql
 [5]:https://github.com/ISYS4283/questions-answers/tree/5452b90c488d6ae05b9c87e578a8165504bafb7f
+[6]:http://www.w3schools.com/sql/sql_where.asp
