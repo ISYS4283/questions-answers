@@ -3,19 +3,45 @@
 use PDO;
 use PDOException;
 use InvalidArgumentException;
+use Carbon\Carbon;
 
 class QuestionExtractor
 {
     protected $pdo;
+    protected $date;
 
     /**
      * Create an instance of a Question Extractor.
      *
+     * @param  string|Carbon $date
      * @return QuestionExtractor
      */
-    public function __construct()
+    public function __construct($date)
     {
         $this->pdo = EnhancedContainer::pdo();
+
+        $this->setDate($date);
+    }
+
+    /**
+     * Set the date filter for which questions to extract.
+     *
+     * @param  string|Carbon $date
+     * @return QuestionExtractor
+     */
+    public function setDate($date) : QuestionExtractor
+    {
+        if ( empty($date) ) {
+            throw new InvalidArgumentException('$date cannot be empty.');
+        }
+
+        if ( ! $date instanceof Carbon ) {
+            $date = new Carbon($date);
+        }
+
+        $this->date = $date->format('Y-m-d');
+
+        return $this;
     }
 
     /**
@@ -45,7 +71,7 @@ class QuestionExtractor
                 question, created_at,
                 '$user[username]' as username
             FROM $user[db].dbo.questions
-            WHERE created_at < GETDATE()
+            WHERE CONVERT(DATE, created_at) = '{$this->date}'
             AND id NOT IN (
                 SELECT id FROM [isys4283].[dbo].[questions]
             )

@@ -2,6 +2,6 @@
 
 use isys4283\qa\QuestionExtractor;
 
-$questionExtractor = new QuestionExtractor;
+$questionExtractor = new QuestionExtractor($argv[1]);
 
 $questionExtractor->run();
