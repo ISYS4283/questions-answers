@@ -102,6 +102,8 @@ class QuestionExtractor
     protected function insert(array $data)
     {
         foreach ( $data as $row ) {
+            $row['total'] = count($data);
+
             $sql  = "INSERT INTO [isys4283].[dbo].[tempq] ";
             $sql .= $this->buildColumnValueBinders($row);
 

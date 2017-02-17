@@ -1,5 +1,5 @@
 -- view and grade
-SELECT id, username, question, error
+SELECT id, username, total, question, error
 FROM [isys4283].[dbo].[tempq]
 WHERE CONVERT(DATE, created_at) = '2017-01-25'
 ORDER BY username
