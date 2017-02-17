@@ -2,4 +2,6 @@
 
 use isys4283\qa\QuestionExtractor;
 
-QuestionExtractor::run();
+$questionExtractor = new QuestionExtractor;
+
+$questionExtractor->run();
