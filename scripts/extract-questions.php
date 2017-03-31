@@ -2,6 +2,5 @@
 
 use isys4283\qa\QuestionExtractor;
 
-$questionExtractor = new QuestionExtractor($argv[1]);
-
-$questionExtractor->run();
+// requires argument for date YYYY-MM-DD
+(new QuestionExtractor($argv[1]))->run();
