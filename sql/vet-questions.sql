@@ -1,5 +1,6 @@
 -- view and grade
 SELECT * FROM [isys4283].[dbo].[tempq]
+ORDER BY [username]
 
 -- delete undesireables
 DELETE FROM [isys4283].[dbo].[tempq]
