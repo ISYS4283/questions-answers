@@ -2,7 +2,7 @@
 SELECT * FROM [isys4283].[dbo].[tempq]
 ORDER BY [username]
 
--- delete undesireables
+-- delete undesirables
 DELETE FROM [isys4283].[dbo].[tempq]
 WHERE question_id IS NULL
    OR id IN (95,98);
