@@ -16,7 +16,9 @@ Connect to `essql1.walton.uark.edu`
 
 ![screenshot of connection][10]
 
-The database is named `isys4283-2017fa`
+Expand the databases folder and create a new query in `isys4283-2017fa`
+
+![screenshot of using database][11]
 
 ## Creating Questions
 
@@ -74,3 +76,4 @@ WHERE id = 43;
 [8]:http://www.w3schools.com/sql/sql_insert.asp
 [9]:https://www.w3schools.com/SQL/sql_update.asp
 [10]:./docs/images/connect.png
+[11]:./docs/images/use_db.png
