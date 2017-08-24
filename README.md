@@ -14,6 +14,8 @@ The question must be on-topic for the respective week's chapter content.
 
 Connect to `essql1.walton.uark.edu`
 
+![screenshot of connection][10]
+
 The database is named `isys4283-2017fa`
 
 ## Creating Questions
@@ -71,3 +73,4 @@ WHERE id = 43;
 [7]:https://waltonlab.uark.edu/
 [8]:http://www.w3schools.com/sql/sql_insert.asp
 [9]:https://www.w3schools.com/SQL/sql_update.asp
+[10]:./docs/images/connect.png
