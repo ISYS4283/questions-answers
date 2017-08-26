@@ -20,6 +20,7 @@ CREATE TRIGGER tr_question_update
 ON questions FOR UPDATE AS
 	-- authorize updates to your content only
 	IF NOT EXISTS (SELECT id FROM INSERTED WHERE user_login = SYSTEM_USER)
+    AND SYSTEM_USER <> 'GACL\jpucket'
 		BEGIN
 			ROLLBACK TRANSACTION
 		END
@@ -51,6 +52,7 @@ GO
 CREATE TRIGGER tr_answer_update
 ON answers FOR UPDATE AS
 	IF NOT EXISTS (SELECT id FROM INSERTED WHERE user_login = SYSTEM_USER)
+    AND SYSTEM_USER <> 'GACL\jpucket'
 		BEGIN
 			ROLLBACK TRANSACTION
 		END
