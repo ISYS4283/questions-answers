@@ -71,9 +71,23 @@ SET question = 'What is metadata?'
 WHERE id = 43;
 ```
 
+## Deleting Content
+
+In order to completely remove your content, use a [`DELETE` statement][12].
+
+```sql
+DELETE FROM questions
+WHERE id = 43;
+```
+
+Remain cognizant of foreign key constraints. e.g.
+You won't be able to delete a question until
+all of the answers to it have been deleted first.
+
 [6]:http://www.w3schools.com/sql/sql_where.asp
 [7]:https://waltonlab.uark.edu/
 [8]:http://www.w3schools.com/sql/sql_insert.asp
 [9]:https://www.w3schools.com/SQL/sql_update.asp
 [10]:./docs/images/connect.png
 [11]:./docs/images/use_db.png
+[12]:https://www.w3schools.com/sql/sql_delete.asp
