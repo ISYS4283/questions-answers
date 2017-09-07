@@ -15,6 +15,7 @@ FROM (
     WHERE q.user_login = 'GACL\jpucket'
       AND q.id > 75
       AND a.invalid = 0
+      AND a.updated_at < '2017-09-08'
 ) t
 WHERE row_num = 1
 
