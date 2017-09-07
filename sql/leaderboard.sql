@@ -19,9 +19,16 @@ FROM (
 WHERE row_num = 1
 
 -- show the leaderboard
-SELECT user_login, SUM(points) AS 'total'
-FROM #leaderdata
-GROUP BY user_login
+SELECT first_name, last_name, SUM(points) AS 'total',
+    CASE
+        WHEN (11 - ROW_NUMBER() OVER(ORDER BY SUM(points) DESC)) > 0
+        THEN (11 - ROW_NUMBER() OVER(ORDER BY SUM(points) DESC))
+        ELSE 0
+    END AS 'bonus'
+FROM users u
+LEFT JOIN #leaderdata d
+  ON u.username = d.user_login
+GROUP BY user_login, first_name, last_name
 ORDER BY 'total' DESC
 
 -- show the leaderdata
