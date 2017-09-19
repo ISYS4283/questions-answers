@@ -1,6 +1,6 @@
 -- variable to filter by chapters
 -- according to class caledar
-DECLARE @date AS DATETIME = '2017-08-29'
+DECLARE @date AS DATETIME = '2017-09-12'
 
 -- all Q&A content
 SELECT q.id, q.user_login, q.question,
@@ -9,6 +9,7 @@ FROM questions q
 LEFT JOIN answers a
   ON q.id = a.question_id
 WHERE q.created_at >= @date
+  AND a.invalid = 0
 ORDER BY q.id
 
 -- report each user's count of both Q&A
@@ -31,6 +32,7 @@ LEFT JOIN (
     WHERE q.created_at >= @date
       -- invalidate answering your own question
       AND q.user_login <> a.user_login
+      AND a.invalid = 0
 ) a
   ON u.username = a.user_login
 GROUP BY u.id, u.username, u.first_name, u.last_name
