@@ -9,7 +9,6 @@ FROM questions q
 LEFT JOIN answers a
   ON q.id = a.question_id
 WHERE q.created_at >= @date
-  AND a.invalid = 0
 ORDER BY q.id
 
 -- report each user's count of both Q&A
