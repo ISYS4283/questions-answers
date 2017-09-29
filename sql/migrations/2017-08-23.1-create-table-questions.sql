@@ -1,0 +1,8 @@
+CREATE TABLE questions
+(
+    id INT IDENTITY PRIMARY KEY,
+    question NVARCHAR(MAX) NOT NULL,
+    user_login VARCHAR(20) DEFAULT SYSTEM_USER CHECK (user_login = SYSTEM_USER),
+    created_at DATETIME DEFAULT GETDATE(),
+    updated_at DATETIME DEFAULT GETDATE()
+)

@@ -1,0 +1,1 @@
+ALTER TABLE answers ADD invalid BIT DEFAULT(0)
