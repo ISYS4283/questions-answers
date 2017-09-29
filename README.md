@@ -1,12 +1,24 @@
 # Questions and Answers
 
 To satisfy your participation points for this course,
-every week you must:
+every week you must insert at least one question and answer into the database.
 
-* Insert at least one question into a database.
-* Insert at least one answer to *someone else's* question.
+## Requirements
 
-The question must be on-topic for the respective week's chapter content.
+The detailed requirements for valid questions and answers are as follows:
+
+### Question
+
+* Must be on-topic for that week's chapter content.
+* Must not be a duplicate of an existing question.
+* Must not have already appeared on a quiz or an exam.
+* Must be inserted any time on the respective Tuesday.
+
+### Answer
+
+* Must be an answer to a valid question for the respective chapter.
+* Must be an answer to *someone else's* question.
+* Must not be a duplicate of an existing answer.
 
 ## Setup
 
