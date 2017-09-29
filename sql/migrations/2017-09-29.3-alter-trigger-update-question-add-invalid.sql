@@ -4,8 +4,10 @@ ON questions FOR UPDATE AS
     RETURN
 
     IF NOT EXISTS (SELECT id FROM INSERTED WHERE user_login = SYSTEM_USER)
-    ROLLBACK TRANSACTION
-    RETURN
+    BEGIN
+        ROLLBACK TRANSACTION
+        RETURN
+    END
 
     UPDATE questions
     SET updated_at = GETDATE()

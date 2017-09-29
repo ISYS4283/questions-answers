@@ -19,16 +19,20 @@ class QuestionTest extends TestCase
 
         // SELECT
         $id = Database::student()->lastInsertId();
-        $select = "SELECT question FROM questions WHERE id = $id";
+        $select = "SELECT * FROM questions WHERE id = $id";
         $actual = Database::student()->query($select)->fetch(PDO::FETCH_ASSOC)['question'];
         $this->assertSame($expected, $actual);
 
         // UPDATE
-        $expected = $question = 'What is DDL?';
+        $question = 'What is DDL?';
         $update = "UPDATE questions SET question = '$question' WHERE id = $id";
+        sleep(1);
         $this->assertSame(1, Database::student()->exec($update));
-        $actual = Database::student()->query($select)->fetch(PDO::FETCH_ASSOC)['question'];
-        $this->assertSame($expected, $actual);
+        $result = Database::student()->query($select)->fetch(PDO::FETCH_ASSOC);
+        $this->assertSame($question, $result['question']);
+        $created_at = new DateTime($result['created_at']);
+        $updated_at = new DateTime($result['updated_at']);
+        $this->assertGreaterThan($created_at, $updated_at);
 
         // DELETE
         $delete = "DELETE FROM questions WHERE id = $id";
@@ -50,16 +54,20 @@ class QuestionTest extends TestCase
         $aid = Database::student()->lastInsertId();
 
         // SELECT
-        $select = "SELECT answer FROM answers WHERE id = $aid";
+        $select = "SELECT * FROM answers WHERE id = $aid";
         $actual = Database::student()->query($select)->fetch(PDO::FETCH_ASSOC)['answer'];
         $this->assertSame($expected, $actual);
 
         // UPDATE
-        $expected = $answer = "SQL to manipulate records";
+        $answer = "SQL to manipulate records";
         $update = "UPDATE answers SET answer = '$answer' WHERE id = $aid";
+        sleep(1);
         $this->assertSame(1, Database::student()->exec($update));
-        $actual = Database::student()->query($select)->fetch(PDO::FETCH_ASSOC)['answer'];
-        $this->assertSame($expected, $actual);
+        $result = Database::student()->query($select)->fetch(PDO::FETCH_ASSOC);
+        $this->assertSame($answer, $result['answer']);
+        $created_at = new DateTime($result['created_at']);
+        $updated_at = new DateTime($result['updated_at']);
+        $this->assertGreaterThan($created_at, $updated_at);
 
         // DELETE
         $delete = "DELETE FROM answers WHERE id = $aid";
