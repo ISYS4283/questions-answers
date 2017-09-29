@@ -21,6 +21,7 @@ LEFT JOIN (
     SELECT *
     FROM questions
     WHERE created_at >= @date
+      AND invalid = 0
 ) q
   ON u.username = q.user_login
 LEFT JOIN (
@@ -31,6 +32,7 @@ LEFT JOIN (
     WHERE q.created_at >= @date
       -- invalidate answering your own question
       AND q.user_login <> a.user_login
+      AND q.invalid = 0
       AND a.invalid = 0
 ) a
   ON u.username = a.user_login
