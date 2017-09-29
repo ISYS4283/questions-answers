@@ -73,4 +73,18 @@ class QuestionTest extends TestCase
         $delete = "DELETE FROM answers WHERE id = $aid";
         $this->assertSame(1, Database::student()->exec($delete));
     }
+
+    public function test_student_cannot_update_someone_elses_question()
+    {
+        // seed question
+        $question = "What is DCL?";
+        $insert = "INSERT INTO questions (question) VALUES ('$question')";
+        $this->assertSame(1, Database::admin()->exec($insert));
+        $qid = Database::admin()->lastInsertId();
+
+        $invalid = 'This is not a valid question.';
+        $update = "UPDATE questions SET question = '$invalid' WHERE id = $qid";
+        $this->expectException(PDOException::class);
+        Database::student()->exec($update);
+    }
 }
