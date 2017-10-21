@@ -1,10 +1,11 @@
 <?php
 
-require_once __DIR__.'/../vendor/autoload.php';
+use razorbacks\blackboard\rest\Api;
 
+require_once __DIR__.'/../vendor/autoload.php';
 (new \Dotenv\Dotenv(dirname(__DIR__)))->load();
 
-var_dump(
+$blackboard = new Api(
     getenv('BB_REST_API_SERVER'),
     getenv('BB_REST_API_APPLICATION_ID'),
     getenv('BB_REST_API_SECRET')

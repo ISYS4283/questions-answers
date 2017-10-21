@@ -9,6 +9,7 @@
         }
     },
     "require": {
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas/phpdotenv": "^2.4",
+        "razorbacks/blackboard-rest-api-wrapper": "^0.1.1"
     }
 }
