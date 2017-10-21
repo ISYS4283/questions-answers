@@ -10,3 +10,8 @@ $blackboard = new Api(
     getenv('BB_REST_API_APPLICATION_ID'),
     getenv('BB_REST_API_SECRET')
 );
+
+$courseId = getenv('BB_REST_API_COURSE_ID');
+$users = $blackboard->get("/courses/{$courseId}/users");
+
+print_r($users);
