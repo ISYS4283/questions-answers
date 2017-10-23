@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a14eb53c4176e1b955e9fd9e9ea5c40",
+    "content-hash": "63a95d91353271dd913083ec0a8455df",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -285,16 +285,16 @@
         },
         {
             "name": "razorbacks/blackboard-rest-api-wrapper",
-            "version": "0.1.1",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/razorbacks/blackboard-rest-api-wrapper.git",
-                "reference": "826ea9b936233f9da81d9c5b7a2e29b660054125"
+                "reference": "0f1190490d060e8d5a36794043b8d2e354b8a385"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/razorbacks/blackboard-rest-api-wrapper/zipball/826ea9b936233f9da81d9c5b7a2e29b660054125",
-                "reference": "826ea9b936233f9da81d9c5b7a2e29b660054125",
+                "url": "https://api.github.com/repos/razorbacks/blackboard-rest-api-wrapper/zipball/0f1190490d060e8d5a36794043b8d2e354b8a385",
+                "reference": "0f1190490d060e8d5a36794043b8d2e354b8a385",
                 "shasum": ""
             },
             "require": {
@@ -321,7 +321,7 @@
                 }
             ],
             "description": "Lightweight wrapper for https://developer.blackboard.com/portal/displayApi",
-            "time": "2017-10-21T03:30:19+00:00"
+            "time": "2017-10-23T19:36:09+00:00"
         },
         {
             "name": "tightenco/collect",
