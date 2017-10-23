@@ -15,8 +15,8 @@ class Database
 
     protected static function getPdo(string $username, string $password)
     {
-        $hostname = getenv('HOSTNAME');
-        $database = getenv('DATABASE');
+        $hostname = getenv('DB_HOSTNAME');
+        $database = getenv('DB_DATABASE');
         $pdo = new PDO("dblib:host=$hostname;dbname=$database",
             $username,
             $password
@@ -28,12 +28,12 @@ class Database
 
     public static function student() : PDO
     {
-        return static::$student ?? static::$student = static::getPdo(getenv('STUDENT_USERNAME'), getenv('STUDENT_PASSWORD'));
+        return static::$student ?? static::$student = static::getPdo(getenv('DB_STUDENT_USERNAME'), getenv('DB_STUDENT_PASSWORD'));
     }
 
     public static function admin() : PDO
     {
-        return static::$admin ?? static::$admin = static::getPdo(getenv('ADMIN_USERNAME'), getenv('ADMIN_PASSWORD'));
+        return static::$admin ?? static::$admin = static::getPdo(getenv('DB_ADMIN_USERNAME'), getenv('DB_ADMIN_PASSWORD'));
     }
 
     public static function fresh()
