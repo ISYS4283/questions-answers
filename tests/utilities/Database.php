@@ -40,6 +40,11 @@ class Database
     {
         jp::CleanMsSQLdb(static::admin());
 
+        static::migrate();
+    }
+
+    public static function migrate()
+    {
         $path = realpath(static::$migrations);
 
         if ($path === false) {
