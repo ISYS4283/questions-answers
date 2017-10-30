@@ -1,3 +1,5 @@
 *pdo.php
 /vendor/
 .env
+.env
+phpunit.xml

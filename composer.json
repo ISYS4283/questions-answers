@@ -3,9 +3,13 @@
         "phpunit/phpunit": "^6.3",
         "jpuck/phpdev": "^1.9"
     },
-    "autoload-dev": {
+    "autoload": {
         "psr-4": {
             "isys4283\\qa\\tests\\utilities\\": "tests/utilities/"
         }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^2.4",
+        "razorbacks/blackboard-rest-api-wrapper": "^0.2"
     }
 }

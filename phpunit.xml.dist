@@ -14,11 +14,11 @@
         </testsuite>
     </testsuites>
     <php>
-        <env name="HOSTNAME" value="essql1.walton.uark.edu"/>
-        <env name="DATABASE" value="isys4283-test"/>
-        <env name="STUDENT_USERNAME" value="isys4283"/>
-        <env name="STUDENT_PASSWORD" value=""/>
-        <env name="ADMIN_USERNAME" value="GACL\jpucket"/>
-        <env name="ADMIN_PASSWORD" value=""/>
+        <env name="DB_HOSTNAME" value="essql1.walton.uark.edu"/>
+        <env name="DB_DATABASE" value="isys4283-test"/>
+        <env name="DB_STUDENT_USERNAME" value="isys4283-2017fa"/>
+        <env name="DB_STUDENT_PASSWORD" value=""/>
+        <env name="DB_ADMIN_USERNAME" value="GACL\jpucket"/>
+        <env name="DB_ADMIN_PASSWORD" value=""/>
     </php>
 </phpunit>
