@@ -3,7 +3,7 @@
         "phpunit/phpunit": "^6.3",
         "jpuck/phpdev": "^1.9"
     },
-    "autoload-dev": {
+    "autoload": {
         "psr-4": {
             "isys4283\\qa\\tests\\utilities\\": "tests/utilities/"
         }
