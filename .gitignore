@@ -2,3 +2,4 @@
 /vendor/
 .env
 .env
+phpunit.xml
