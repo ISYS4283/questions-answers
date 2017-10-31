@@ -12,7 +12,7 @@ The detailed requirements for valid questions and answers are as follows:
 * Must be on-topic for that week's chapter content.
 * Must not be a duplicate of an existing question.
 * Must not have already appeared on a quiz or an exam.
-* Must be inserted any time on the respective Tuesday.
+* Must be inserted any time on the respective Tuesday. Refer to [class calendar][class-calendar] for exceptions.
 
 ### Answer
 
@@ -103,3 +103,4 @@ all of the answers to it have been deleted first.
 [10]:./docs/images/connect.png
 [11]:./docs/images/use_db.png
 [12]:https://www.w3schools.com/sql/sql_delete.asp
+[class-calendar]:https://isys4283.walton.uark.edu/calendar
