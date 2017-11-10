@@ -40,5 +40,6 @@ LEFT JOIN (
       AND a.invalid = 0
 ) a
   ON u.username = a.user_login
+WHERE u.active = 1
 GROUP BY u.id, u.username, u.first_name, u.last_name
 ORDER BY u.last_name
