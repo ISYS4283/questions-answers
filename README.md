@@ -73,6 +73,10 @@ INSERT INTO answers (question_id, answer)
 VALUES (42, 'Data in context.');
 ```
 
+*Note* [the requirements](#requirements) for valid questions and answers.
+Use [these more complex queries][select] for a better overview of content
+to ensure you're compliant.
+
 ## Updating Content
 
 If you make a mistake, then you can use an [`UPDATE` statement][9] to fix it.
@@ -96,6 +100,16 @@ Remain cognizant of foreign key constraints. e.g.
 You won't be able to delete a question until
 all of the answers to it have been deleted first.
 
+## View Scores
+
+After questions and answers have been reviewed for validity,
+then you can check your scores using the [`qascore` stored procedure][qascore].
+The required parameters are due dates for question `@qdate` and answer `@adate`.
+
+```sql
+EXEC qascore @qdate = '2017-11-07', @adate = '2017-11-09'
+```
+
 [6]:http://www.w3schools.com/sql/sql_where.asp
 [7]:https://waltonlab.uark.edu/
 [8]:http://www.w3schools.com/sql/sql_insert.asp
@@ -104,3 +118,5 @@ all of the answers to it have been deleted first.
 [11]:./docs/images/use_db.png
 [12]:https://www.w3schools.com/sql/sql_delete.asp
 [class-calendar]:https://isys4283.walton.uark.edu/calendar
+[qascore]:./sql/migrations/2017-10-30.2-alter-qascore-sp.sql
+[select]:./sql/select.sql
